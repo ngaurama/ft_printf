@@ -6,7 +6,7 @@
 /*   By: ngaurama <ngaurama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:37:52 by ngaurama          #+#    #+#             */
-/*   Updated: 2024/11/06 20:03:18 by ngaurama         ###   ########.fr       */
+/*   Updated: 2024/11/09 13:02:29 by ngaurama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,33 @@
 //flags
 typedef struct s_flags
 {
+    int letter;
+    int asterix;
     int left_justify;
     int zero_padding;
     int width;
     int precision;
-    int alt_form;
-    int sign;
+    int hash;
+    int plus;
     int space;
 } t_flags;
 
-int handler(char *output, va_list args, int i, char c);
-int handler_c(char *output, va_list args, int i);
-int ft_shift(char *output, int *i);
+int handler(char const *format, va_list args);
+int	ft_printf(const char *format, ...);
+t_flags ft_assign(void);
+int ft_handle_flags(char const *format, int shift, va_list args, t_flags *flags);
+int ft_conditions(int c);
+int	is_letter(int c);
+int ft_padding(int len, int shift, t_flags flags);
+int ft_printf_s(char const *str, t_flags flags);
+int ft_printf_c(char c, t_flags flags);
+int ft_result(char letter, va_list args, t_flags flags);
+int ft_printf_p(unsigned long n, t_flags flags);
+int ft_printf_d_i(int n, t_flags flags);
+int ft_print_e(const char *str);
+int ft_printf_u(unsigned n, t_flags flags);
+int ft_printf_xX(unsigned int n, t_flags flags, int big);
+int	is_flag(int c);
 
 #endif
 

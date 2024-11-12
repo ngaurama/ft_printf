@@ -1,4 +1,4 @@
-NAME			=	libftprintf.a
+LIBRARY			=	libftprintf.a
 
 CC				=	gcc
 CFLAGS			=	-Wall -Wextra -Werror
@@ -6,7 +6,7 @@ AR				=	ar
 ARFLAGS 		=	rcs
 RM				=	rm -rf
 
-SRC				=	ft_printf ft_print_char ft_print_str ft_print_hex ft_print_int ft_print_ptr ft_print_unsigned ft_nbr_len ft_flags ft_flags_utils ft_print_flag ft_printf_itoa ft_printf_utoa ft_printf_xtoa
+SRC				=	ft_printf_c ft_printf_s ft_printf_p ft_printf_xX ft_printf_u ft_printf_d_i ft_printf handler helpers ft_result
 SRCS 			=	$(addsuffix .c, $(SRC))
 
 OBJ_DIR			=	obj
@@ -18,13 +18,13 @@ LIBFT			=	$(LIBFT_PATH)/libft.a
 $(OBJ_DIR)/%.o:		%.c
 					$(CC) $(CFLAGS) -c $< -o $@
 
-all:				$(NAME)
+all:				$(LIBRARY)
 
 bonus:				all
 
-$(NAME):			$(LIBFT) $(OBJ_DIR) $(OBJS)
-				cp	$(LIBFT) $(NAME)
-					$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+$(LIBRARY):			$(LIBFT) $(OBJ_DIR) $(OBJS)
+				cp	$(LIBFT) $(LIBRARY)
+					$(AR) $(ARFLAGS) $(LIBRARY) $(OBJS)
 
 $(LIBFT):
 					make -C $(LIBFT_PATH) all
@@ -38,7 +38,7 @@ clean:
 
 fclean:				clean
 					make -C $(LIBFT_PATH) fclean
-					$(RM) $(NAME)
+					$(RM) $(LIBRARY)
 
 re:					fclean all
 

@@ -1,7 +1,7 @@
 
 #include <stdio.h>
 #include <limits.h>
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 void	test_simple(void)
 {
@@ -334,8 +334,13 @@ void	test_bonus_char(void)
 	y = ft_printf("  Ft:\tChar [%*c]\n", 8, 'x');
 	printf("Printf = %d, ft_printf = %d\n\n", x, y);
 
+    x = printf("  Or:\tChar [%0*c]\n", 8, 'x');
 	y = ft_printf("  Ft:\tChar [%0*c]\n", 8, 'x');
+    printf("Printf = %d, ft_printf = %d\n\n", x, y);
+
+    x = printf("  Or:\tChar [%-0*c]\n", 8, 'x');
 	y = ft_printf("  Ft:\tChar [%-0*c]\n", 8, 'x');
+	printf("Printf = %d, ft_printf = %d\n\n", x, y);
 
 /*	printf("\n----------- TEST: WIDTH %% -----------\n\n");
 	x = printf("  Or:\tChar [%20%]\n");
@@ -511,6 +516,7 @@ void	test_bonus_precision(void)
 	x = printf("  Or:\tInt, prec 2: [%.2d]\n", 42424242);
 	y = ft_printf("  Ft:\tInt, prec 2: [%.2d]\n", 42424242);
 	printf("Printf = %d, ft_printf = %d\n\n", x, y);
+    //HERE
 	x = printf("  Or:\tInt, prec 42: [%.42d]\n", 42424242);
 	y = ft_printf("  Ft:\tInt, prec 42: [%.42d]\n", 42424242);
 	printf("Printf = %d, ft_printf = %d\n\n", x, y);
@@ -575,6 +581,10 @@ void	test_invalid_spec(void)
 
 	x = printf("  Or\t:\tInvalid: [%%wawa] = [%wawa]\n");
 	y = ft_printf("  Ft\t:\tInvalid: [%%wawa] = [%wawa]\n");
+	printf("Printf = %d, ft_printf = %d\n\n", x, y);
+
+	x = printf("  Or\t:\tInvalid: [%%0 c] = [%0 c]\n");
+	y = ft_printf("  Ft\t:\tInvalid: [%%0 c] = [%0 c]\n");
 	printf("Printf = %d, ft_printf = %d\n\n", x, y);
 }
 
