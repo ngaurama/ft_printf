@@ -6,7 +6,7 @@
 /*   By: ngaurama <ngaurama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 14:04:18 by ngaurama          #+#    #+#             */
-/*   Updated: 2024/11/08 22:07:46 by ngaurama         ###   ########.fr       */
+/*   Updated: 2024/11/12 17:06:28 by ngaurama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,32 +24,17 @@ int	ft_add(unsigned long n)
 	{
 		c = (n % 16) + '0';
 		write(1, &c, 1);
-        count++;
+		count++;
 	}
 	else
 	{
 		c = ((n % 16) - 10) + 'a';
 		write(1, &c, 1);
-        count++;
-	}
-	return (count);
-}
-
-int	ft_print_e(const char *str)
-{
-	int	count;
-
-	count = 0;
-	if (!str)
-	{
-		return (count += write(1, "(null)", 6));
-	}
-	count = 0;
-	while (str[count])
 		count++;
-	write(1, str, count);
+	}
 	return (count);
 }
+
 int	ft_ptr(unsigned long n)
 {
 	int	count;
@@ -79,7 +64,7 @@ int	ft_plen(unsigned long n)
 
 int	ft_printf_p(unsigned long n, t_flags flags)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (!n)

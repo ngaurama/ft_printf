@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
+/*   ft_assign.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngaurama <ngaurama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 17:39:17 by ngaurama          #+#    #+#             */
-/*   Updated: 2024/11/08 19:10:38 by ngaurama         ###   ########.fr       */
+/*   Created: 2024/11/12 16:21:55 by ngaurama          #+#    #+#             */
+/*   Updated: 2024/11/12 16:36:18 by ngaurama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+t_flags	ft_assign(void)
 {
-	if (lst && new)
-	{
-		new->next = *lst;
-		*lst = new;
-	}
+	t_flags	flags;
+
+	flags.letter = 0;
+	flags.asterix = 0;
+	flags.left_justify = 0;
+	flags.zero_padding = 0;
+	flags.width = 0;
+	flags.precision = -1;
+	flags.hash = 0;
+	flags.plus = 0;
+	flags.space = 0;
+	return (flags);
 }

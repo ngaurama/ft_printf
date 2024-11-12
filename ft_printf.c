@@ -6,7 +6,7 @@
 /*   By: ngaurama <ngaurama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:38:50 by ngaurama          #+#    #+#             */
-/*   Updated: 2024/11/08 18:08:33 by ngaurama         ###   ########.fr       */
+/*   Updated: 2024/11/12 17:03:37 by ngaurama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,10 @@ int	ft_printf(const char *format, ...)
 	int		count;
 
 	va_start(args, format);
-    count = 0;
-    if (!format || !(*format))
-        return (0);
-    count = handler(format, args);
-    va_end(args);
-    return (count);
+	count = 0;
+	if (!format || !(*format))
+		return (0);
+	count = handler(format, args);
+	va_end(args);
+	return (count);
 }
-

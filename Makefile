@@ -2,11 +2,13 @@ LIBRARY			=	libftprintf.a
 
 CC				=	gcc
 CFLAGS			=	-Wall -Wextra -Werror
-AR				=	ar
-ARFLAGS 		=	rcs
+AR				=	ar -rcs
 RM				=	rm -rf
 
-SRC				=	ft_printf_c ft_printf_s ft_printf_p ft_printf_xX ft_printf_u ft_printf_d_i ft_printf handler helpers ft_result
+SRC				=	ft_assign ft_printf_d_i_helper  ft_printf_u	ft_result ft_printf \
+					ft_printf ft_printf_u_helpers handler ft_printf_c ft_printf_p \
+					ft_printf_x	helpers utils ft_printf_d_i ft_printf_s	 ft_printf_x_helpers
+
 SRCS 			=	$(addsuffix .c, $(SRC))
 
 OBJ_DIR			=	obj
@@ -24,10 +26,10 @@ bonus:				all
 
 $(LIBRARY):			$(LIBFT) $(OBJ_DIR) $(OBJS)
 				cp	$(LIBFT) $(LIBRARY)
-					$(AR) $(ARFLAGS) $(LIBRARY) $(OBJS)
+					$(AR) $(LIBRARY) $(OBJS)
 
 $(LIBFT):
-					make -C $(LIBFT_PATH) all
+					make bonus -C $(LIBFT_PATH) all
 
 $(OBJ_DIR):
 					mkdir -p $(OBJ_DIR)
