@@ -92,7 +92,7 @@ int	ft_phex_helper(char *num, int n, t_flags flags, int bigger)
 	if (!flags.zero_padding && flags.hash && n)
 		count += ft_bigger(bigger);
 	if (flags.precision >= 0)
-		count += ft_padding(flags.precision - 1, ft_strlen(num) - 1, flags);
+		count += ft_pad(flags.precision - 1, ft_strlen(num) - 1, flags);
 	count += ft_print_e(num);
 	return (count);
 }

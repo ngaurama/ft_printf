@@ -6,7 +6,7 @@
 /*   By: ngaurama <ngaurama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 12:53:20 by ngaurama          #+#    #+#             */
-/*   Updated: 2024/11/12 17:03:12 by ngaurama         ###   ########.fr       */
+/*   Updated: 2024/11/13 17:44:13 by ngaurama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ft_precision(char const *format, int shift, va_list args, t_flags *flags)
 	return (shift);
 }
 
-int	ft_padding(int len, int shift, t_flags flags)
+int	ft_pad(int len, int shift, t_flags flags)
 {
 	int	count;
 
@@ -57,7 +57,9 @@ int	ft_padding(int len, int shift, t_flags flags)
 		if (flags.zero_padding)
 			count += write(1, "0", 1);
 		else
+		{
 			count += write(1, " ", 1);
+		}
 		len--;
 	}
 	return (count);

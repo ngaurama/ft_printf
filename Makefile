@@ -1,4 +1,4 @@
-LIBRARY			=	libftprintf.a
+NAME			=	libftprintf.a
 
 CC				=	gcc
 CFLAGS			=	-Wall -Wextra -Werror
@@ -20,13 +20,13 @@ LIBFT			=	$(LIBFT_PATH)/libft.a
 $(OBJ_DIR)/%.o:		%.c
 					$(CC) $(CFLAGS) -c $< -o $@
 
-all:				$(LIBRARY)
+all:				$(NAME)
 
 bonus:				all
 
-$(LIBRARY):			$(LIBFT) $(OBJ_DIR) $(OBJS)
-				cp	$(LIBFT) $(LIBRARY)
-					$(AR) $(LIBRARY) $(OBJS)
+$(NAME):			$(LIBFT) $(OBJ_DIR) $(OBJS)
+				cp	$(LIBFT) $(NAME)
+					$(AR) $(NAME) $(OBJS)
 
 $(LIBFT):
 					make bonus -C $(LIBFT_PATH) all
@@ -40,7 +40,7 @@ clean:
 
 fclean:				clean
 					make -C $(LIBFT_PATH) fclean
-					$(RM) $(LIBRARY)
+					$(RM) $(NAME)
 
 re:					fclean all
 

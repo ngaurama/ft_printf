@@ -6,7 +6,7 @@
 /*   By: ngaurama <ngaurama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 13:34:26 by ngaurama          #+#    #+#             */
-/*   Updated: 2024/11/12 17:22:48 by ngaurama         ###   ########.fr       */
+/*   Updated: 2024/11/13 17:17:28 by ngaurama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_printf_s_helper(char const *str, t_flags flags)
 	count = 0;
 	if (flags.precision >= 0)
 	{
-		count += ft_padding(flags.precision, ft_strlen(str), flags);
+		count += ft_pad(flags.precision, ft_strlen(str), flags);
 		i = 0;
 		while (str[i] && i < flags.precision)
 			count += write(1, &str[i++], 1);
@@ -42,7 +42,7 @@ int	ft_printf_s(char const *str, t_flags flags)
 	flags.zero_padding = 0;
 	if (str == NULL && flags.precision >= 0 && flags.precision < 6)
 	{
-		count += ft_padding(flags.width, 0, flags);
+		count += ft_pad(flags.width, 0, flags);
 		return (count);
 	}
 	if (!str)
@@ -52,9 +52,9 @@ int	ft_printf_s(char const *str, t_flags flags)
 	if (flags.left_justify)
 		count += ft_printf_s_helper(str, flags);
 	if (flags.precision >= 0)
-		count += ft_padding(flags.width, flags.precision, flags);
+		count += ft_pad(flags.width, flags.precision, flags);
 	else
-		count += ft_padding(flags.width, ft_strlen(str), flags);
+		count += ft_pad(flags.width, ft_strlen(str), flags);
 	if (!flags.left_justify)
 		count += ft_printf_s_helper(str, flags);
 	return (count);

@@ -6,7 +6,7 @@
 /*   By: ngaurama <ngaurama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:37:52 by ngaurama          #+#    #+#             */
-/*   Updated: 2024/11/12 17:41:11 by ngaurama         ###   ########.fr       */
+/*   Updated: 2024/11/13 17:17:49 by ngaurama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int		ft_printf_u(unsigned n, t_flags flags);
 int		ft_printf_x(unsigned int n, t_flags flags, int big);
 
 // Flag Helper Functions
-int		ft_padding(int len, int shift, t_flags flags);
+int		ft_pad(int len, int shift, t_flags flags);
 int		ft_precision(char const *format, int shift, va_list args,
 			t_flags *flags);
 int		is_flag(int c);

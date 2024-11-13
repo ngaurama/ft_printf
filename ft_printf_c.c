@@ -6,7 +6,7 @@
 /*   By: ngaurama <ngaurama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 13:26:05 by ngaurama          #+#    #+#             */
-/*   Updated: 2024/11/12 16:52:14 by ngaurama         ###   ########.fr       */
+/*   Updated: 2024/11/13 17:16:44 by ngaurama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int	ft_printf_c(char c, t_flags flags)
 	flags.zero_padding = 0;
 	if (flags.left_justify)
 		count += write(1, &c, 1);
-	count += ft_padding(flags.width, 1, flags);
+	if (flags.letter != '%')
+		count += ft_pad(flags.width, 1, flags);
 	if (!flags.left_justify)
 		count += write(1, &c, 1);
 	return (count);
