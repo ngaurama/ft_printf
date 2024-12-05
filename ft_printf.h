@@ -6,7 +6,7 @@
 /*   By: ngaurama <ngaurama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:37:52 by ngaurama          #+#    #+#             */
-/*   Updated: 2024/11/13 17:17:49 by ngaurama         ###   ########.fr       */
+/*   Updated: 2024/11/20 18:39:48 by ngaurama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 typedef struct s_flags
 {
 	int	letter;
-	int	asterix;
 	int	left_justify;
 	int	zero_padding;
 	int	width;
@@ -37,8 +36,7 @@ typedef struct s_flags
 // ft_printf and handlers
 int		ft_printf(const char *format, ...);
 int		handler(char const *format, va_list args);
-int		ft_handle_flags(char const *format, int shift, va_list args,
-			t_flags *flags);
+int		ft_handle_flags(char const *format, int shift, t_flags *flags);
 int		ft_result(char letter, va_list args, t_flags flags);
 
 // Printf letter's main functions
@@ -51,8 +49,7 @@ int		ft_printf_x(unsigned int n, t_flags flags, int big);
 
 // Flag Helper Functions
 int		ft_pad(int len, int shift, t_flags flags);
-int		ft_precision(char const *format, int shift, va_list args,
-			t_flags *flags);
+int		ft_precision(char const *format, int shift, t_flags *flags);
 int		is_flag(int c);
 int		is_letter(int c);
 int		ft_conditions(int c);
@@ -89,20 +86,17 @@ int		ft_phex_helper(char *num, int n, t_flags flags, int bigger);
 t_flags	ft_assign(void);
 int		ft_print_e(const char *str);
 void	ft_hyphen(t_flags *flags);
-void	ft_asterix(va_list args, t_flags *flags);
-void	ft_width(char c, t_flags *flags);
 
 #endif
 
 /*
-| Flag        | `%c` | `%s` | `%p` | `%d` | `%i` | `%u` | `%x` | `%X` | `%%` |
-|-------------|------|------|------|------|------|------|------|------|------|
-| **`-`**     | Yes  | Yes  | Yes  | Yes  | Yes  | Yes  | Yes  | Yes  | No   |
-| **`0`**     | No   | No   | No   | Yes  | Yes  | Yes  | Yes  | Yes  | No   |
-| **`.`**     | No   | Yes  | Yes  | Yes  | Yes  | Yes  | Yes  | Yes  | No   |
-| **Width**   | Yes  | Yes  | Yes  | Yes  | Yes  | Yes  | Yes  | Yes  | No   |
-| **`#`**     | No   | No   | Yes  | Yes  | Yes  | No   | Yes  | Yes  | No   |
-| **`+`**     | No   | No   | No   | Yes  | Yes  | No   | No   | No   | No   |
-| **` `**     | No   | No   | No   | Yes  | Yes  | No   | No   | No   | No   |
-| **`%%`**    | No   | No   | No   | No   | No   | No   | No   | No   | Yes  |
+| Flag        | `%c` | `%s` | `%p` | `%d` | `%i` | `%u` | `%x` | `%X` |
+|-------------|------|------|------|------|------|------|------|------|
+| **`-`**     | Yes  | Yes  | Yes  | Yes  | Yes  | Yes  | Yes  | Yes  |
+| **`0`**     | No   | No   | No   | Yes  | Yes  | Yes  | Yes  | Yes  |
+| **`.`**     | No   | Yes  | Yes  | Yes  | Yes  | Yes  | Yes  | Yes  |
+| **Width**   | Yes  | Yes  | Yes  | Yes  | Yes  | Yes  | Yes  | Yes  |
+| **`#`**     | No   | No   | Yes  | Yes  | Yes  | No   | Yes  | Yes  |
+| **`+`**     | No   | No   | No   | Yes  | Yes  | No   | No   | No   |
+| **` `**     | No   | No   | No   | Yes  | Yes  | No   | No   | No   |
 */

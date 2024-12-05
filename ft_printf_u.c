@@ -6,7 +6,7 @@
 /*   By: ngaurama <ngaurama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 15:24:10 by ngaurama          #+#    #+#             */
-/*   Updated: 2024/11/13 17:17:39 by ngaurama         ###   ########.fr       */
+/*   Updated: 2024/11/25 13:11:15 by ngaurama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ int	ft_printf_u(unsigned n, t_flags flags)
 	if (!num)
 		return (0);
 	count += ft_pu(num, flags);
+	free(num);
 	return (count);
 }

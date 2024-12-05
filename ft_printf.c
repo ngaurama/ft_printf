@@ -6,7 +6,7 @@
 /*   By: ngaurama <ngaurama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:38:50 by ngaurama          #+#    #+#             */
-/*   Updated: 2024/11/12 17:03:37 by ngaurama         ###   ########.fr       */
+/*   Updated: 2024/11/20 18:13:00 by ngaurama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	ft_printf(const char *format, ...)
 
 	va_start(args, format);
 	count = 0;
+	if (format == 0)
+		return (-1);
 	if (!format || !(*format))
 		return (0);
 	count = handler(format, args);

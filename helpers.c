@@ -6,7 +6,7 @@
 /*   By: ngaurama <ngaurama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 12:53:20 by ngaurama          #+#    #+#             */
-/*   Updated: 2024/11/13 17:44:13 by ngaurama         ###   ########.fr       */
+/*   Updated: 2024/11/20 18:38:05 by ngaurama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	is_flag(int c)
 {
-	if (c == '-' || c == '0' || c == '.' || c == '*' || c == '#' || c == ' '
+	if (c == '-' || c == '0' || c == '.' || c == '#' || c == ' '
 		|| c == '+')
 		return (1);
 	return (0);
@@ -33,14 +33,9 @@ int	ft_conditions(int c)
 	return (is_flag(c) || is_letter(c) || ft_isdigit(c));
 }
 
-int	ft_precision(char const *format, int shift, va_list args, t_flags *flags)
+int	ft_precision(char const *format, int shift, t_flags *flags)
 {
 	shift++;
-	if (format[shift] == '*')
-	{
-		flags->precision = va_arg(args, int);
-		return (shift++);
-	}
 	flags->precision = 0;
 	while (ft_isdigit(format[shift]))
 		flags->precision = (flags->precision * 10) + (format[shift++] - '0');

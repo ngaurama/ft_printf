@@ -5,11 +5,9 @@ CFLAGS			=	-Wall -Wextra -Werror
 AR				=	ar -rcs
 RM				=	rm -rf
 
-SRC				=	ft_assign ft_printf_d_i_helper  ft_printf_u	ft_result ft_printf \
-					ft_printf ft_printf_u_helpers handler ft_printf_c ft_printf_p \
-					ft_printf_x	helpers utils ft_printf_d_i ft_printf_s	 ft_printf_x_helpers
-
-SRCS 			=	$(addsuffix .c, $(SRC))
+SRCS				=	ft_assign.c ft_printf_d_i_helper.c  ft_printf_u.c	ft_result.c ft_printf.c \
+					ft_printf.c ft_printf_u_helpers.c handler.c ft_printf_c.c ft_printf_p.c \
+					ft_printf_x.c	helpers.c utils.c ft_printf_d_i.c ft_printf_s.c	 ft_printf_x_helpers.c
 
 OBJ_DIR			=	obj
 OBJS			=	$(SRCS:%.c=$(OBJ_DIR)/%.o)

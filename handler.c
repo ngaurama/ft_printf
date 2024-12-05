@@ -6,13 +6,13 @@
 /*   By: ngaurama <ngaurama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:25:13 by ngaurama          #+#    #+#             */
-/*   Updated: 2024/11/13 15:52:30 by ngaurama         ###   ########.fr       */
+/*   Updated: 2024/11/20 18:39:40 by ngaurama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_handle_flags(char const *format, int shift, va_list args, t_flags *flags)
+int	ft_handle_flags(char const *format, int shift, t_flags *flags)
 {
 	while (format[++shift] && ft_conditions(format[shift]))
 	{
@@ -27,11 +27,9 @@ int	ft_handle_flags(char const *format, int shift, va_list args, t_flags *flags)
 		if (format[shift] == '0' && !flags->left_justify && !flags->width)
 			flags->zero_padding = 1;
 		if (format[shift] == '.')
-			shift = ft_precision(format, shift, args, flags);
-		if (format[shift] == '*')
-			ft_asterix(args, flags);
+			shift = ft_precision(format, shift, flags);
 		if (ft_isdigit(format[shift]))
-			ft_width(format[shift], flags);
+			flags->width = (flags->width * 10) + (format[shift] - '0');
 		if (is_letter(format[shift]))
 		{
 			flags->letter = format[shift];
@@ -66,7 +64,7 @@ int	handler(char const *format, va_list args)
 		if (format[shift] == '%' && format[shift + 1])
 		{
 			start = shift;
-			shift = ft_handle_flags(format, shift, args, &flags);
+			shift = ft_handle_flags(format, shift, &flags);
 			if (format[shift] && flags.letter && is_letter(format[shift]))
 				count += ft_result(format[shift], args, flags);
 			else
