@@ -27,22 +27,23 @@ OBJS = ${SRCS:.c=.o}
 OBJSB = ${SRCSB:.c=.o}
 
 .c.o:
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+	@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
-	ar -rsc ${NAME} ${OBJS}
+	@ar -rsc ${NAME} ${OBJS}
 
 bonus:	${OBJSB}
-		ar -rsc ${NAME} ${OBJSB}
+	@ar -rsc ${NAME} ${OBJSB}
 
 all: ${NAME}
 
 clean:
-	rm -f ${OBJSB}
+	@rm -f ${OBJSB}
 
 fclean:	clean;
-		rm -f ${NAME}
+	@rm -f ${NAME}
 
-re:	fclean all
+re:	
+	@fclean all
 
 .PHONY: all clean fclean re bonus
