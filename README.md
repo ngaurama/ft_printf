@@ -93,5 +93,3 @@ Through this project, I gained experience with:
   - 42 Paris – Common Core project <br>
 
 ![Nitai's GitHub stats](https://github-readme-stats.vercel.app/api?username=ngaurama&show_icons=true&theme=transparent)
-
-![Snake animation](https://github.com/ngaurama/ngaurama/blob/output/github-contribution-grid-snake.svg)
